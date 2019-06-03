@@ -1,0 +1,20 @@
+language: python
+python:
+  - '3.6'
+  - '2.7'
+  - '3.4'
+  - '3.5'
+install:
+  - pip install .
+script:
+  - python -m wxpy -v
+deploy:
+  provider: pypi
+  user: frkhit
+  password:
+    secure: WTtABFx87jLQNC0VnX93NJ7xXriyYWQpAqi2LndOw5DGIOB8PDqwyDBuK2mo5odrEZOhpCX311O2AJvuhDfdS9jN9n3nnFwN0wEaKJ7ujNXvfUy+Cfy/9skcWKDXkB5zmjYr+0dfF0MSSI3Y4KVuxXlGTFptDpC7mSAQbKsfqxDwz1A1KnjNobLbOFDaYGwaM77s7anCBxwh0zd6orXl5kdTDui/RDYvGVTJZY/1N5p2gMOQDbnbk3i8BHcw4kRoO6FOIPiZA3ZlYwZg161OMXpvhWaaBfqQfoYJFQwutarcq3sKGuZMOZG/CczF8knemajgFLeZcuAya+2NCN6c+Ei/b79z0v2pVR+Ls33QP24FojLEk/x1onbPpjry0F+Uc30Kgumr3fLZ+pkP0aDpelk0l4XrZB1seZ/TV4n/mcJKn0ot6ZUyFm600wYmCcjC0Cdt5uD0J3Jd/0v3zDG4KQjWmsB4sgf5I64YOSJBTkvHCt4PGTPa4+9dXsdw512PAU2YEaMMt2O1hoMkaiLQxgrHlnfn3jwcPM6XN122iMWIg1VHBOK+0fsbOrKC1Lr3/yEmDmxgVjdsHrd1/img6LQP83/L3Fci00juo98pA1rvjSePG1yOE2GaBrs2uYjMByXP91GwgBb15KKKPLhceHaULriFs60gl983CQdtzMs=
+  skip_cleanup: true
+  skip_existing: true
+  twine_version: 1.13.0
+  on:
+    tags: true

@@ -13,7 +13,7 @@ with codecs.open('README.rst', encoding='utf-8') as fp:
     readme = fp.read()
 
 setup(
-    name='wxpy',
+    name='bl-wxpy',
     version=version,
     packages=find_packages(),
     include_package_data=True,
@@ -31,11 +31,11 @@ setup(
     tests_require=[
         'pytest',
     ],
-    url='https://github.com/youfou/wxpy',
+    url='https://github.com/frkhit/bl_wxpy',
     license='MIT',
-    author='Youfou',
-    author_email='youfou@qq.com',
-    description='微信机器人 / 可能是最优雅的微信个人号 API ✨✨',
+    author='frkhit',
+    author_email='frkhit@gmail.com',
+    description='wxpy 定制版, 基于 https://github.com/youfou/wxpy:new-core 分支(不使用 itChat)',
     long_description=readme,
     keywords=[
         '微信',

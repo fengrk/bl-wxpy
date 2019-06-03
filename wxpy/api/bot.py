@@ -418,3 +418,7 @@ class Bot(object):
         if self.is_listening:
             self.stop()
         self.temp_dir.cleanup()
+
+    def dump(self):
+        """ 持久化 session """
+        self.core.dump()

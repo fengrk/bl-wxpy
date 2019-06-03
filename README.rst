@@ -2,6 +2,8 @@
 
     本分支用于重构 `Bot.core`, 具体见 `#84 <https://github.com/youfou/wxpy/issues/84>`_
 
+    注意：由于`bl_wxpy` 与 `wxpy` 使用同一个安装目录， `import wxpy`使用的是后安装的包！
+
 ----
 
 wxpy: 用 Python 玩微信
@@ -66,7 +68,7 @@ wxpy 支持 Python 3.4-3.6，以及 2.7 版本
 
 ..  code:: shell
 
-    pip install -U wxpy
+    pip install -U bl-wxpy
 
 2. 从豆瓣 PYPI 镜像源下载安装 (**推荐国内用户选用**):
 
