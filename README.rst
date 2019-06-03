@@ -68,7 +68,7 @@ wxpy 支持 Python 3.4-3.6，以及 2.7 版本
 
 ..  code:: shell
 
-    pip install -U wxpy
+    pip install -U bl-wxpy
 
 2. 从豆瓣 PYPI 镜像源下载安装 (**推荐国内用户选用**):
 
