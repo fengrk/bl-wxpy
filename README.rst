@@ -2,7 +2,7 @@
 
     本分支用于重构 `Bot.core`, 具体见 `#84 <https://github.com/youfou/wxpy/issues/84>`_
 
-    注意：由于`bl_wxpy` 与 `wxpy` 使用同一个安装目录， `import wxpy`使用的是后安装的包！
+    注意：由于bl_wxpy 与 wxpy 使用同一个安装目录， 'import wxpy'使用的是后安装的包！
 
 ----
 

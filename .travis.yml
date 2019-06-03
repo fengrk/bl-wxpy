@@ -17,4 +17,6 @@ deploy:
   skip_existing: true
   twine_version: 1.13.0
   on:
+    python: 3.6
     tags: true
+    branch: master
