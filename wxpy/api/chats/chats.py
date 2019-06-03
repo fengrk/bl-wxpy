@@ -4,7 +4,6 @@ from __future__ import unicode_literals
 import logging
 from collections import Counter
 
-from wxpy.compatible import *
 from wxpy.utils import match_attributes, match_name, ensure_one
 
 logger = logging.getLogger(__name__)

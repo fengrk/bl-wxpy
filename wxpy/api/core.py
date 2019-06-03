@@ -53,8 +53,8 @@ logger = logging.getLogger(__name__)
 
 
 class Core(object):
-    USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) ' \
-                 'AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.86 Safari/537.36'
+    USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) " \
+                 "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
 
     def __init__(self, bot=None, cache_path=None, console_qr=None, qr_path=None, proxies=None):
         """
@@ -475,7 +475,7 @@ class Core(object):
                     uin=self.data.uin,
                     deviceid=self.device_id,
                     synckey='|'.join(['{0[Key]}_{0[Val]}'.format(d) for d in (
-                        self.data.sync_check_key or self.data.sync_key)['List']]),
+                            self.data.sync_check_key or self.data.sync_key)['List']]),
                     _=self.uris.ts_add_up
                 ),
                 timeout=(10, 30),
@@ -498,7 +498,7 @@ class Core(object):
                 return ret_code, selector
         self._logged_out(final_error)
 
-    def sync(self, retries=3):
+    def sync(self, retries=3, delete_when_modify=False):
         """
         同步数据
 
@@ -527,7 +527,7 @@ class Core(object):
                 final_error = e
             else:
                 merge_chat_dict(self.data.raw_self, resp_json.get('Profile'))
-                self.process_chat_list(resp_json['ModContactList'])
+                self.process_chat_list(resp_json['ModContactList'], delete=delete_when_modify)
                 self.put_new_messages(resp_json['AddMsgList'])
                 self.process_chat_list(resp_json['DelContactList'], delete=True)
                 # ModChatRoomMemberList 在 Web 微信中未被实现
@@ -613,7 +613,7 @@ class Core(object):
 
         msg_type = msg_type or TEXT
 
-        logger.info('sending {} to {}:\n{}'.format(msg_type, receiver, content))
+        logger.debug('sending {} to {}:\n{}'.format(msg_type, receiver, content))
 
         # url
 
@@ -1163,6 +1163,19 @@ class Core(object):
     def from_cookies(self, name):
         """ 从 cookies 中获取值 """
         return self.session.cookies.get(name)
+
+    # extend
+    def update_all_data(self):
+        """ 更新数据: raw_chat,  """
+        if self.session and self.alive:
+            try:
+                self.sync(retries=1, delete_when_modify=True)
+            except ResponseError:
+                logger.info('failed to continue last data sync loop')
+            else:
+                self.self = Friend(self, self.data.raw_self)
+
+                self.dump()
 
 
 def from_js(js, *names):

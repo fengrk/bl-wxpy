@@ -191,6 +191,7 @@ class Chat(object):
         if self.raw.get('HeadImgUrl'):
             return self.core.download(urljoin(self.core.uris.current_page, self.raw['HeadImgUrl']), save_path)
         else:
+            logger.warning("raw info for {} is {}".format(self, self.raw))
             raise ValueError('failed to get the avatar url for {}'.format(self))
 
     @property
