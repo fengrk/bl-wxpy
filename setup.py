@@ -31,7 +31,7 @@ setup(
     tests_require=[
         'pytest',
     ],
-    url='https://github.com/frkhit/bl_wxpy',
+    url='https://github.com/frkhit/bl-wxpy',
     license='MIT',
     author='frkhit',
     author_email='frkhit@gmail.com',
