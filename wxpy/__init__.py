@@ -55,7 +55,7 @@
 """
 
 __title__ = 'wxpy'
-__version__ = '0.6.5'
+__version__ = '0.6.6'
 __author__ = 'Youfou'
 __license__ = 'MIT'
 __copyright__ = '2017, Youfou'
