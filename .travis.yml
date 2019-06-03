@@ -1,5 +1,8 @@
 language: python
 python:
+- '2.7'
+- '3.4'
+- '3.5'
 - '3.6'
 install:
 - pip install .
@@ -10,7 +13,7 @@ deploy:
   user: frkhit
   password:
     secure: JE4/TI9SZOtRGQTYXEeBwhiJr+NRz0C6tPlS0NVFg+lFIYnL+1LHpLV5G4FjJHEBRk2HZVg7kOnYYXCYikwT5zpkwPRPcd3uLdnSTH1wGRwhsSMnuKSDACr5Z1dpt38lOlmzZeHlryKVytByhxTUm6WpWCrsgmWMy5fMjyU/PZ3OeG8mW3QjAxbDqNNcqphPjexKhvvzrx6MgcXc5aaibRsqg1rOtTreb29kX8qUi1x/yrvfGeRPtVHBrcsx7i2yOvn5/gUn+M02YjHUSn5BEf6yPsg7/4OiuX6jVw/l98UAGfecP2wLMIlbVqWS3kLOVe2Ze31bA6XW1vSrtKT1QIqAam4L0sT2i7OZicdZShc1TNLhnYPRQ/qVFJ+R2v1y4evtrbSDiE+NirCHUakRK9l3IJEiCzzkBhPWsqE2cuE2N+QNP/eO6QAPNh9T2zqbcCQtF1bnqA8L1X7MSDA82+MUuNxcLb8hX8G5IRppcmBqPcXOsFT/fHwFrAzPjGwIjLeJTTou/2wAgAYbeHR/fkcBntcUyw7ndG8QiCko0+6lgyPQskBo4JDVqgNJXEgTw+lIA1ygo0QlrQVJeHEQKeUnjuvEW7LwJit3+LOn3bP9vCIkmUiM4BPsADuCHzzUND9mR7AibbnsNKU9bCMU7IuLtsk27S5Clmwz67fc1uc=
-  true:
-    python: 3.6
+  on:
     tags: true
     branch: master
+    python: 3.6
