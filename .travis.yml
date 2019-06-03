@@ -18,4 +18,5 @@ deploy:
   twine_version: 1.13.0
   on:
     tags: true
+    python: 3.6
     branch: master
