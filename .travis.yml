@@ -3,6 +3,8 @@ python:
 - '3.6'
 install:
 - pip install .
+script:
+- python -m wxpy -v
 deploy:
   provider: pypi
   user: frkhit
