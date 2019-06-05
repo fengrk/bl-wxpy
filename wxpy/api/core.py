@@ -792,15 +792,17 @@ class Core(object):
         return resp_json['MediaId']
 
     # [data]
-
-    def dump(self):
+    def dump(self, force: bool = False):
         if self.cache_path:
-            logger.debug('dumping core data')
-            self.data.cookies = self.session.cookies
-            self.data.uris = self.uris
+            if not force and not self.is_living():
+                logger.warning("WeChat is not living: skip dumping data!")
+            else:
+                logger.debug('dumping core data')
+                self.data.cookies = self.session.cookies
+                self.data.uris = self.uris
 
-            with open(self.cache_path, 'wb') as fp:
-                pickle.dump(self.data, fp)
+                with open(self.cache_path, 'wb') as fp:
+                    pickle.dump(self.data, fp)
 
     def load(self):
         if self.cache_path and os.path.isfile(self.cache_path):
@@ -1176,6 +1178,13 @@ class Core(object):
                 self.self = Friend(self, self.data.raw_self)
 
                 self.dump()
+
+    def is_living(self):
+        """ 判断 WeChat 机器人是否登录有效
+
+        :rtype: bool
+        """
+        return self.alive is True
 
 
 def from_js(js, *names):

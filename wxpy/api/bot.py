@@ -419,6 +419,6 @@ class Bot(object):
             self.stop()
         self.temp_dir.cleanup()
 
-    def dump(self):
+    def dump(self, force=False):
         """ 持久化 session """
-        self.core.dump()
+        self.core.dump(force=force)
