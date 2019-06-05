@@ -792,7 +792,10 @@ class Core(object):
         return resp_json['MediaId']
 
     # [data]
-    def dump(self, force: bool = False):
+    def dump(self, force=False):
+        """
+        :param force: bool, 是否强制持久化
+        """
         if self.cache_path:
             if not force and not self.is_living():
                 logger.warning("WeChat is not living: skip dumping data!")
